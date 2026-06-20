@@ -1,0 +1,35 @@
+import java.util.HashMap;
+class StudentGrades {
+    HashMap<String, Integer> grades = new HashMap<>();
+    void addStudent(String name, int grade) {
+        grades.put(name, grade);
+        System.out.println(name + " added with grade " + grade);
+    }
+    void getGrade(String name) {
+        if (grades.containsKey(name))
+            System.out.println(name + "'s grade is " + grades.get(name));
+        else
+            System.out.println(name + " not found.");
+    }
+    void updateGrade(String name, int grade) {
+        if (grades.containsKey(name)) {
+            grades.put(name, grade);
+            System.out.println(name + "'s grade updated to " + grade);
+        } else
+            System.out.println(name + " not found.");
+    }
+    void display() {
+        System.out.println("Student Grades: " + grades);
+    }
+    public static void main(String[] args) {
+        StudentGrades obj = new StudentGrades();
+        obj.addStudent("Deepankar", 85);
+        obj.addStudent("Rahul", 90);
+        obj.addStudent("Anjali", 88);
+        obj.display();
+        obj.getGrade("Rahul");
+        obj.updateGrade("Rahul", 95);
+        obj.getGrade("Rahul");
+        obj.display();
+    }
+}
